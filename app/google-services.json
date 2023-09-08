@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "611727084004",
+    "project_id": "cj-s-pp",
+    "storage_bucket": "cj-s-pp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:611727084004:android:51faf7f265c8bc88f79ff1",
+        "android_client_info": {
+          "package_name": "com.example.cjspp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "611727084004-fa9g3tipbbqhqgkvj5tvme57u12q1en5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3h1UDULXiOhkX_twcDoChLqPsCKh6uyY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "611727084004-fa9g3tipbbqhqgkvj5tvme57u12q1en5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
