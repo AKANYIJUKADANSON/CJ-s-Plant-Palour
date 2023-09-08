@@ -67,6 +67,7 @@
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="32dp"
+                    android:hint="first Name"
                     android:textColorHint="@color/app_color"
                     app:boxStrokeColor="@color/app_color"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -78,7 +79,6 @@
                         android:id="@+id/ed_signup_first_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="first Name"
                         android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -90,6 +90,7 @@
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="32dp"
+                    android:hint="last Name"
                     android:textColorHint="@color/app_color"
                     app:boxStrokeColor="@color/app_color"
                     app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
@@ -101,7 +102,6 @@
                         android:id="@+id/ed_signup_last_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="last Name"
                         android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -113,6 +113,7 @@
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="32dp"
+                    android:hint="Place of residence"
                     android:textColorHint="@color/app_color"
                     app:boxStrokeColor="@color/app_color"
                     app:layout_constraintEnd_toEndOf="@+id/textInputLayout_last_name"
@@ -124,7 +125,6 @@
                         android:id="@+id/ed_signup_placeOf_residence"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Place of residence"
                         android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -137,6 +137,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="32dp"
                     android:maxLength="13"
+                    android:hint="+256715..."
                     android:textColorHint="@color/app_color"
                     app:boxStrokeColor="@color/app_color"
                     app:layout_constraintEnd_toEndOf="@+id/textInputLayout_place_of_residence"
@@ -148,7 +149,6 @@
                         android:id="@+id/ed_signup_phone_number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="+256715..."
                         android:inputType="number" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -160,6 +160,7 @@
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="32dp"
+                    android:hint="Gender"
                     android:textColorHint="@color/app_color"
                     app:boxStrokeColor="@color/app_color"
                     app:layout_constraintEnd_toEndOf="@+id/textInputLayout_phone_number"
@@ -168,10 +169,12 @@
                     app:startIconDrawable="@drawable/baseline_gender">
 
                     <AutoCompleteTextView
-                        android:id="@+id/ed_signup_gender"
+                        android:id="@+id/auto_complete_gender"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="Gender"/>
+                        android:inputType="none"/>
+
+
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -181,6 +184,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:hint="Email"
                     android:textColorHint="@color/app_color"
                     app:boxStrokeColor="@color/app_color"
                     app:layout_constraintEnd_toEndOf="@+id/textInputLayout_gender"
@@ -192,7 +196,6 @@
                         android:id="@+id/ed_sign_in_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Email"
                         android:inputType="textEmailAddress" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -203,6 +206,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:hint="Password"
                     android:textColorHint="@color/app_color"
                     app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
                     app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
@@ -214,7 +218,6 @@
                         android:id="@+id/ed_signup_password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Password"
                         android:inputType="textPassword" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -224,6 +227,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:hint="Confirm password"
                     android:textColorHint="@color/app_color"
                     app:layout_constraintEnd_toEndOf="@+id/textInputLayout3"
                     app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
@@ -235,12 +239,11 @@
                         android:id="@+id/ed_signup_confirm_password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Confirm password"
                         android:inputType="textPassword" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/button_register"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginStart="32dp"
@@ -260,7 +263,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button">
+                    app:layout_constraintTop_toBottomOf="@+id/button_register">
 
                     <TextView
                         android:layout_width="wrap_content"
