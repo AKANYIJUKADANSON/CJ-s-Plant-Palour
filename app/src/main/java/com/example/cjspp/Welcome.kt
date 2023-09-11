@@ -11,9 +11,9 @@ class Welcome : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setUpActionBar()
         binding = DataBindingUtil.setContentView(this, R.layout.activity_welcome)
 
+        setUpActionBar()
     }
 
 

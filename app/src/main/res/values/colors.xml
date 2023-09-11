@@ -11,4 +11,5 @@
 
     <color name="app_color">#023C05</color>
     <color name="deep_sky_blue">#0277BD</color>
+    <color name="search_view_color">#F3F3F3</color>
 </resources>

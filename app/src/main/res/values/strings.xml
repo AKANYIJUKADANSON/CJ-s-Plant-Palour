@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">CJ\'s PP</string>
-    <string name="emailForgotPasswd">Enter your email, we will send a link to change the password.</string>
+    <string name="emailForgotPasswd">Enter your email, You will receive a link to reset your password.</string>
     <string name="emailSentSuccess">Email sent successfully. Check your email to change your password.</string>
 </resources>

@@ -108,6 +108,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
 
         <LinearLayout
+            android:id="@+id/ll_have_no_account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"

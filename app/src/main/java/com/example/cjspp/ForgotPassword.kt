@@ -38,11 +38,11 @@ class ForgotPassword : AppCompatActivity() {
                 false
             }
             else -> {
-                Utilities().progressDialog("Submitting...")
+//                Utilities().progressDialog("Submitting...")
                 mFirebaseAuth.sendPasswordResetEmail(emailToSendLink)
                     .addOnCompleteListener {task ->
                         if (task.isSuccessful){
-                            Utilities().mProgressDialog.dismiss()
+//                            Utilities().mProgressDialog.dismiss()
                             Toast.makeText(
                                 this,
                                 resources.getString(R.string.emailSentSuccess),
@@ -70,7 +70,7 @@ class ForgotPassword : AppCompatActivity() {
     }
 
     private fun setUpActionBar(){
-        val myToolBar = findViewById<Toolbar>(R.id.login_toolbar)
+        val myToolBar = findViewById<Toolbar>(R.id.forgot_password_toolbar)
         setSupportActionBar(myToolBar)
         val actionBar = supportActionBar
         if (actionBar != null){
