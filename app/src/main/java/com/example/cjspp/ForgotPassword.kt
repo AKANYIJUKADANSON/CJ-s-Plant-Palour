@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import com.example.cjspp.databinding.ActivityForgotPasswordBinding
-import com.example.cjspp.utilities.Utilities
 import com.google.firebase.auth.FirebaseAuth
 
 class ForgotPassword : AppCompatActivity() {

@@ -9,7 +9,11 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import com.example.cjspp.databinding.ActivityLoginBinding
+import com.example.cjspp.mvvm.FirebaseViewModel
+import com.example.cjspp.mvvm.FirebaseViewModelFactory
+import com.example.cjspp.mvvm.FirebaseViewModelRepository
 import com.example.cjspp.newsapp.AddNews
 import com.example.cjspp.newsapp.News
 import com.google.firebase.auth.FirebaseAuth
@@ -18,13 +22,18 @@ import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.util.*
 
-class Login : AppCompatActivity() {
+class Login : BaseActivity() {
     lateinit var binding:ActivityLoginBinding
-    private var mFirebaseAuth:FirebaseAuth = FirebaseAuth.getInstance()
-    @RequiresApi(Build.VERSION_CODES.O)
+    lateinit var firebaseViewModel:FirebaseViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
+
+        // Initializing the view model
+        val repository = FirebaseViewModelRepository()
+        val factory = FirebaseViewModelFactory(repository)
+        firebaseViewModel = ViewModelProvider(this, factory)[FirebaseViewModel::class.java]
 
         // Login button
         binding.buttonLogin.setOnClickListener {
@@ -35,7 +44,7 @@ class Login : AppCompatActivity() {
         binding.llHaveNoAccount.setOnClickListener {
             val intentHaveNoAccount = Intent(this@Login, Signup::class.java)
             startActivity(intentHaveNoAccount)
-//            finish()
+            // finish()
         }
 
         // Forgot password
@@ -60,34 +69,25 @@ class Login : AppCompatActivity() {
                 Toast.makeText(this, "Please enter email address", Toast.LENGTH_LONG).show()
                 false
             }
-
             TextUtils.isEmpty(password.trim { it <= ' ' }) -> {
                 Toast.makeText(this, "Please enter password", Toast.LENGTH_LONG).show()
                 false
             }else ->{
-                mFirebaseAuth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener { task ->
-                        if (task.isSuccessful){
-                            Toast.makeText(this, "Login successfully", Toast.LENGTH_LONG).show()
-
-                            val intent = Intent(this, News::class.java)
-
-                            // Clearing previous tasks
-                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                            startActivity(intent)
-                            finish()
-                        }
-                        else{
-                            Toast.makeText(
-                                this@Login,
-                                task.exception?.message.toString(),
-                                Toast.LENGTH_LONG
-                            ).show()
-                        }
-                    }
-
+                // View model login
+                firebaseViewModel.userLogin(this, email, password)
                 return true
             }
         }
+    }
+
+    fun loginSuccess() {
+        // End the progress dialog
+        mProgressDialog.dismiss()
+        val intent = Intent(this, Welcome::class.java)
+
+        // Clearing previous tasks
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        finish()
     }
 }

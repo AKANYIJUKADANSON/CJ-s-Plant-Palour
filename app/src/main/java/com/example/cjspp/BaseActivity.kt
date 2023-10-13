@@ -1,20 +1,19 @@
-package com.example.cjspp.utilities
+package com.example.cjspp
 
 import android.app.Dialog
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.example.cjspp.R
 import com.example.cjspp.databinding.ProgressDialogBinding
 
-open class Utilities:AppCompatActivity() {
-    lateinit var mProgressDialog:Dialog
-    lateinit var binding:ProgressDialogBinding
+open class BaseActivity:AppCompatActivity() {
+    lateinit var mProgressDialog: Dialog
+    lateinit var progressBarBinding: ProgressDialogBinding
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
-        binding = DataBindingUtil.setContentView(this, R.layout.progress_dialog)
+        progressBarBinding = DataBindingUtil.setContentView(this, R.layout.progress_dialog)
     }
 
     fun progressDialog(text: String) {
@@ -25,7 +24,7 @@ open class Utilities:AppCompatActivity() {
         mProgressDialog.setContentView(R.layout.progress_dialog)
 
 
-        binding.tvProgressDialog.text = text
+        progressBarBinding.tvProgressDialog.text = text
 
         mProgressDialog.setCancelable(false)
         mProgressDialog.setCanceledOnTouchOutside(false)
